@@ -1,0 +1,16 @@
+.main-div{
+  padding: 0px;
+}
+.login-form{
+  padding: 20px;
+}
+.Popia_consent_text{
+  word-wrap: break-word;
+}
+.wholeForm{
+  height: 650 px;
+  color: #fff;
+  background-image: url("../registration/lukas-blazek-GnvurwJsKaY-unsplash.jpg");
+  background-size: 100% ;
+    background-size: cover;
+}
