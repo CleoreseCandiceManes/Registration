@@ -1,0 +1,89 @@
+<mat-card>
+  <mat-card-header>
+    <mat-toolbar color="primary" fxLayoutAlign="center center">
+      <mat-icon>account_circle</mat-icon>Registration
+    </mat-toolbar>
+  </mat-card-header>
+  <mat-card-content>
+    <form fxLayoutAlign='center center' fxFlexFill fxLayout="column" class="login-form main-div">
+    <!--Full Name-->
+      <mat-form-field appearance="fill">
+        <mat-label>Full Name</mat-label>
+        <input [formControl]="val" required matInput placeholder="Full Name">
+        <mat-error *ngIf="val.invalid">
+          {{getErrorMessageRequired()}}
+        </mat-error>
+        <mat-icon matSuffix>create</mat-icon>
+      </mat-form-field>
+
+    <!--Gender-->
+      <label>Gender </label>
+      <mat-radio-group  [formControl]="floatLabelControl">
+        <mat-radio-button value="auto">Male</mat-radio-button>
+        <mat-radio-button value="always">Female</mat-radio-button>
+      </mat-radio-group>
+
+    <!--DOB-->
+      <mat-form-field appearance="fill">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+    <!--Email-->
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email " [formControl]="email"  required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+
+    <!--CellNum-->
+      <mat-form-field appearance="fill">
+        <mat-label>Cell number</mat-label>
+        <input matInput placeholder="Cell number" #input maxlength="10">
+        <mat-icon matSuffix>phone</mat-icon>
+      </mat-form-field>
+
+    <!--Password-->
+      <mat-form-field appearance="fill" >
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+    <!--Confirm password-->
+    <mat-form-field appearance="fill" >
+      <mat-label>Retype password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" required>
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <!--Courses-->
+    <mat-label >Courses:</mat-label>
+      <mat-radio-group aria-label="Course:" [formControl]="floatLabelControl">
+          <mat-radio-button value="auto">Tech-Support</mat-radio-button>
+          <mat-radio-button value="always">AWS re/Start</mat-radio-button>
+        </mat-radio-group>
+
+        <mat-checkbox class="Popia_consent_text" >
+          User consents to sharing of their information with prospective recruiters within compliance with POPIA
+        </mat-checkbox>
+        <button color="accent" mat-raised-button type="submit"><mat-icon>launch</mat-icon>Register</button>
+
+    </form>
+
+  </mat-card-content>
+</mat-card>
+
+
+
+
+
+
+
